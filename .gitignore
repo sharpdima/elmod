@@ -1,0 +1,31 @@
+# Docker runtime data, databases, and secrets
+docker/volumes/
+docker/middleware.env
+docker/nginx/ssl/
+
+# Environment files
+.env
+.env*
+!/.env.example
+api/.env
+web/.env.local
+web/.env.development.local
+web/.env.test.local
+web/.env.production.local
+
+# Local databases and storage
+db.sqlite3
+db.sqlite3-journal
+api/storage/
+
+# Build artifacts and caches
+.next/
+node_modules/
+web/node_modules/
+api/venv/
+__pycache__/
+
+# IDE and editor settings
+.idea/
+.vscode/
+*.swp
