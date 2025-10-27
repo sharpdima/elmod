@@ -762,11 +762,11 @@ button:focus-within {
 } 
 
 
-.bg-chatbot-bg{
-    background-image: url(http://sharpdima.com/wp-content/uploads/2025/10/mowazi.webp);
-    background-size: contain;
-    /* border-color: rgb(0 26 78); */
-    /* background-color: #b7ebff; */
+.bg-chatbot-bg {
+  background-image: url('/images/back.png'); /* <<-- آدرس به فایل داخلی تغییر کرد */
+  background-size: cover; /* cover معمولاً برای پس‌زمینه ظاهر بهتری دارد */
+  background-position: center; /* (اختیاری) تصویر را در مرکز قرار می‌دهد */
+  background-repeat: no-repeat; /* (اختیاری) از تکرار شدن تصویر جلوگیری می‌کند */
 }
 
 .markdown-body.\!body-2xl-regular.\!text-text-tertiary
@@ -779,4 +779,51 @@ button:focus-within {
 button.btn.disabled\:btn-disabled.btn-primary.btn-medium.ml-3.w-8.px-0
  {
     rotate: 180deg !important;
+}
+
+.bg-background-default-burn {
+    background-color: #03b5ff2e !important;
+}
+
+.text-2xl
+ {
+    font-size: 1.3rem;
+ }
+
+ /* انیمیشن برای ظاهر شدن تدریجی */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px); /* کمی از پایین به بالا میاد */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+ .animate-fade-in {
+  animation: fadeIn 0.7s ease-out forwards;
+} 
+
+/* انیمیشن برای دکمه‌ها: ورود از پایین با کمی تاخیر */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up-1 {
+  animation: fadeInUp 0.5s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up-2 {
+  animation: fadeInUp 0.5s ease-out 0.5s forwards;
+  opacity: 0;
 }
