@@ -47,9 +47,8 @@ const ChatWithHistory: FC<ChatWithHistoryProps> = ({ className }) => {
   return (
     <div
       className={cn(
-        // 'font-vazirmatn flex h-full bg-background-default-burn',
-        'font-vazirmatn animate-fade-in flex h-full bg-background-default-burn', // <<-- کلاس جدید اضافه شد
-
+        'font-vazirmatn flex h-full bg-background-default-burn',
+        isMobile && 'flex-col', 
         className,
       )}
     >
