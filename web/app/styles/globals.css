@@ -763,7 +763,7 @@ button:focus-within {
 
 
 .bg-chatbot-bg {
-  background-image: url('/images/back.png'); /* <<-- آدرس به فایل داخلی تغییر کرد */
+  background-image: url('/images/back.jpg'); /* <<-- آدرس به فایل داخلی تغییر کرد */
   background-size: cover; /* cover معمولاً برای پس‌زمینه ظاهر بهتری دارد */
   background-position: center; /* (اختیاری) تصویر را در مرکز قرار می‌دهد */
   background-repeat: no-repeat; /* (اختیاری) از تکرار شدن تصویر جلوگیری می‌کند */
@@ -782,7 +782,7 @@ button.btn.disabled\:btn-disabled.btn-primary.btn-medium.ml-3.w-8.px-0
 }
 
 .bg-background-default-burn {
-    background-color: #03b5ff2e !important;
+    background-color: #7cd5ddfa !important;
 }
 
 .text-2xl
@@ -790,3 +790,29 @@ button.btn.disabled\:btn-disabled.btn-primary.btn-medium.ml-3.w-8.px-0
     font-size: 1.3rem;
  }
 
+ .w-full.rounded-2xl.bg-background-gradient-bg-fill-chat-bubble-bg-3.px-4.py-3.text-sm.text-text-primary
+
+ {
+background-color:#d7d7d799 !important
+}
+
+.rounded-full
+ {
+    height: 3.2rem !important;
+    background-color: transparent !important;}
+
+    span.flex.items-center.justify-center.relative.rounded-lg.grow-0.shrink-0.overflow-hidden.w-10.h-10.text-\[24px\] {
+    width: 3.5rem;
+    height: 4.5rem;
+}
+
+span.flex.items-center.justify-center.relative.rounded-lg.grow-0.shrink-0.overflow-hidden.w-12.h-12.text-\[28px\]
+ {
+    width: 10rem;
+    height: 13rem;
+}
+
+span.flex.items-center.justify-center.relative.rounded-lg.grow-0.shrink-0.overflow-hidden.w-12.h-12.text-\[28px\] {
+    width: 150px;
+    height: 150px;
+}

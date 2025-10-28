@@ -64,10 +64,10 @@ const Sidebar = ({ isPanel }: Props) => {
   }, [])
   const handleDelete = useCallback(() => {
     if (showConfirm) {
- handleDeleteConversation(showConfirm.id, {
+      handleDeleteConversation(showConfirm.id, {
         onSuccess: handleCancelConfirm,
       })
-}
+    }
   }, [showConfirm, handleDeleteConversation, handleCancelConfirm])
   const handleCancelRename = useCallback(() => {
     setShowRename(null)
@@ -75,10 +75,10 @@ const Sidebar = ({ isPanel }: Props) => {
   const handleRename = useCallback(
     (newName: string) => {
       if (showRename) {
- handleRenameConversation(showRename.id, newName, {
+        handleRenameConversation(showRename.id, newName, {
           onSuccess: handleCancelRename,
         })
-}
+      }
     },
     [showRename, handleRenameConversation, handleCancelRename],
   )
@@ -126,7 +126,7 @@ const Sidebar = ({ isPanel }: Props) => {
           variant="secondary"
           // className="w-full justify-center text-white"
           className="animate-fade-in-up-1 w-full justify-center text-white" // <<-- کلاس انیمیشن اول
-          style={{ backgroundColor: '#03b5ff', borderColor: '#03b5ff' }}
+          style={{ backgroundColor: '#177582', borderColor: '#177582' }}
           onClick={handleGoToMowazi}
         >
           <RiHome2Line className="mr-1 h-4 w-4" />
@@ -135,8 +135,8 @@ const Sidebar = ({ isPanel }: Props) => {
         <Button
           variant="secondary"
           disabled={isResponding}
-          className="w-full justify-center border-[#03b5ff] text-[#03b5ff] hover:bg-[#03b5ff] hover:text-white"
-          className="... animate-fade-in-up-2 w-full justify-center border-[#03b5ff]" // <<-- کلاس انیمیشن دوم
+          className="w-full justify-center border-[#177582] text-[#177582] hover:bg-[#177582] hover:text-white"
+          className="... animate-fade-in-up-2 w-full justify-center border-[#177582]" // <<-- کلاس انیمیشن دوم
           onClick={handleNewConversation}
         >
           <RiEditBoxLine className="mr-1 h-4 w-4" />

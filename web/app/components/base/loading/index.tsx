@@ -18,7 +18,7 @@ const Loading = ({ type = 'area' }: ILoadingProps) => {
 
       {/* قدم ۲: اضافه کردن متن در زیر لوگو */}
       <p className="font-vazirmatn mt-6 text-xl font-semibold text-white">
-        ژرفکاو موازی{' '}
+        Mowazi Inteligent Research Assistant{' '}
       </p>
     </div>
   )
