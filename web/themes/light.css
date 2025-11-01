@@ -134,7 +134,7 @@ html[data-theme="light"] {
   --color-components-menu-item-bg-active: rgb(21 90 239 / 0.08);
   --color-components-menu-item-bg-hover: rgb(200 206 218 / 0.2);
 
-  --color-components-panel-bg: #ffffff;
+  --color-components-panel-bg:color-components-panel-bg;/* #ffffff;*/
   --color-components-panel-bg-blur: rgb(255 255 255 / 0.95);
   --color-components-panel-border: rgb(16 24 40 / 0.08);
   --color-components-panel-border-subtle: rgb(16 24 40 / 0.08);
@@ -380,12 +380,19 @@ html[data-theme="light"] {
   --color-text-inverted: #000000;
   --color-text-inverted-dimmed: rgb(0 0 0 / 0.95);
 
-  --color-background-body: #f2f4f7;
-  --color-background-default-subtle: #fcfcfd;
+  --color-background-body: #e6f7f8;
+/*#f2f4f7;*/ 
+
+
+
+  --color-background-default-subtle:#e6f7f8;
+  /* #fcfcfd;*/
   --color-background-neutral-subtle: #f9fafb;
   --color-background-sidenav-bg: rgb(255 255 255 / 0.8);
-  --color-background-default: #ffffff;
-  --color-background-soft: #f9fafb;
+  --color-background-default:#e6f7f8;
+  /* #ffffff;*/
+  --color-background-soft:#e6f7f8;
+  /* #f9fafb;*/
   --color-background-gradient-bg-fill-chat-bg-1: #f9fafb;
   --color-background-gradient-bg-fill-chat-bg-2: #f2f4f7;
   --color-background-gradient-bg-fill-chat-bubble-bg-1: #ffffff;
@@ -401,7 +408,8 @@ html[data-theme="light"] {
   --color-background-gradient-mask-side-panel-2: rgb(16 24 40 / 0.3);
   --color-background-gradient-mask-side-panel-1: rgb(16 24 40 / 0.02);
 
-  --color-background-default-burn: #e9ebf0;
+  --color-background-default-burn: #18a2a937;
+
   --color-background-overlay-fullscreen: rgb(249 250 251 / 0.95);
   --color-background-default-lighter: rgb(255 255 255 / 0.5);
   --color-background-section: #f9fafb;
@@ -751,5 +759,4 @@ html[data-theme="light"] {
 
   --color-dify-logo-dify-logo-blue: #0033ff;
   --color-dify-logo-dify-logo-black: #000000;
-
 }

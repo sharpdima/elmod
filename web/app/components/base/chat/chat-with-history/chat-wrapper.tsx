@@ -276,7 +276,7 @@ const ChatWrapper = () => {
             sequence={[welcomeMessage.content]}
             wrapper="span"
             speed={50}
-            className="text-align:justify text-2xl font-bold !text-white"
+            className="!text-text-tertiary"
             cursor={true}
             repeat={0}
           />

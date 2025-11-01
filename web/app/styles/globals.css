@@ -762,16 +762,10 @@ button:focus-within {
 } 
 
 
-.bg-chatbot-bg {
-  background-image: url('/images/back.jpg'); /* <<-- آدرس به فایل داخلی تغییر کرد */
-  background-size: cover; /* cover معمولاً برای پس‌زمینه ظاهر بهتری دارد */
-  background-position: center; /* (اختیاری) تصویر را در مرکز قرار می‌دهد */
-  background-repeat: no-repeat; /* (اختیاری) از تکرار شدن تصویر جلوگیری می‌کند */
-}
+
 
 .markdown-body.\!body-2xl-regular.\!text-text-tertiary
  {
-    color: white !important;
     font-size: 20px;
     font-weight: 800;
 }
@@ -781,30 +775,21 @@ button.btn.disabled\:btn-disabled.btn-primary.btn-medium.ml-3.w-8.px-0
     rotate: 180deg !important;
 }
 
-.bg-background-default-burn {
-    background-color: #7cd5ddfa !important;
-}
 
 .text-2xl
  {
     font-size: 1.3rem;
  }
 
- .w-full.rounded-2xl.bg-background-gradient-bg-fill-chat-bubble-bg-3.px-4.py-3.text-sm.text-text-primary
-
- {
-background-color:#d7d7d799 !important
-}
-
 .rounded-full
  {
-    height: 3.2rem !important;
-    background-color: transparent !important;}
+    background-color: transparent !important;
+  }
 
     span.flex.items-center.justify-center.relative.rounded-lg.grow-0.shrink-0.overflow-hidden.w-10.h-10.text-\[24px\] {
     width: 3.5rem;
-    height: 4.5rem;
-}
+    height: 4.5rem; 
+} 
 
 span.flex.items-center.justify-center.relative.rounded-lg.grow-0.shrink-0.overflow-hidden.w-12.h-12.text-\[28px\]
  {
@@ -815,4 +800,54 @@ span.flex.items-center.justify-center.relative.rounded-lg.grow-0.shrink-0.overfl
 span.flex.items-center.justify-center.relative.rounded-lg.grow-0.shrink-0.overflow-hidden.w-12.h-12.text-\[28px\] {
     width: 150px;
     height: 150px;
+}
+
+/* * بازنویسی پس‌زمینه چت برای حالت روشن (Light Mode)
+ */
+html[data-theme='light'] .bg-chatbot-bg {
+  background-image: url('/images/Artboard 3_2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* این خطوط باعث می‌شوند که حباب‌های چت خواناتر باشند (اختیاری) */
+  --color-background-gradient-bg-fill-chat-bubble-bg-1: rgba(255, 255, 255, 0.85);
+  --color-background-gradient-bg-fill-chat-bubble-bg-2: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(2px);
+}
+
+/* * بازنویسی پس‌زمینه چت برای حالت تیره (Dark Mode)
+ */
+html[data-theme='dark'] .bg-chatbot-bg {
+  background-image: url('/images/Artboard 1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* این خطوط باعث می‌شوند که حباب‌های چت خواناتر باشند (اختیاری) */
+  --color-background-gradient-bg-fill-chat-bubble-bg-1: rgba(30, 41, 59, 0.85); /* یک رنگ تیره نیمه‌شفاف */
+  --color-background-gradient-bg-fill-chat-bubble-bg-2: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(2px);
+}
+
+/*
+ * بازنویسی رنگ حباب گفتگو فقط در حالت روشن (Light Mode)
+ */
+html[data-theme='light'] .bg-chat-bubble-bg {
+  background-color: #b4b4b4 !important;
+}
+
+/*
+ * بازنویسی رنگ حباب سوال کاربر فقط در حالت روشن (Light Mode)
+ */
+html[data-theme='light'] .bg-primary-600 {
+  background-color: #9ee2e799 !important; 
+  color: #101828 !important; 
+}
+
+html[data-theme='dark'] .text-text-secondary {
+  color: #d7fbff !important;
+}
+html[data-theme='light'] {
+  --color-components-chat-input-border: #177582 !important;
 }
