@@ -134,7 +134,7 @@ html[data-theme="light"] {
   --color-components-menu-item-bg-active: rgb(21 90 239 / 0.08);
   --color-components-menu-item-bg-hover: rgb(200 206 218 / 0.2);
 
-  --color-components-panel-bg:color-components-panel-bg;/* #ffffff;*/
+  --color-components-panel-bg:#ffffff;
   --color-components-panel-bg-blur: rgb(255 255 255 / 0.95);
   --color-components-panel-border: rgb(16 24 40 / 0.08);
   --color-components-panel-border-subtle: rgb(16 24 40 / 0.08);

@@ -798,9 +798,10 @@ span.flex.items-center.justify-center.relative.rounded-lg.grow-0.shrink-0.overfl
 }
 
 span.flex.items-center.justify-center.relative.rounded-lg.grow-0.shrink-0.overflow-hidden.w-12.h-12.text-\[28px\] {
-    width: 150px;
-    height: 150px;
+    max-width: 250px !important;
+    height: auto !important;
 }
+
 
 /* * بازنویسی پس‌زمینه چت برای حالت روشن (Light Mode)
  */
@@ -834,7 +835,7 @@ html[data-theme='dark'] .bg-chatbot-bg {
  * بازنویسی رنگ حباب گفتگو فقط در حالت روشن (Light Mode)
  */
 html[data-theme='light'] .bg-chat-bubble-bg {
-  background-color: #b4b4b4 !important;
+  background-color: #0bc1c74e !important;
 }
 
 /*
@@ -851,3 +852,4 @@ html[data-theme='dark'] .text-text-secondary {
 html[data-theme='light'] {
   --color-components-chat-input-border: #177582 !important;
 }
+
