@@ -1,5 +1,6 @@
 'use client'
 import type { FC } from 'react'
+// useEffect و useState باید import شوند (که از قبل وجود دارند)
 import { useEffect, useState } from 'react'
 import { useAsyncEffect } from 'ahooks'
 import { useThemeContext } from '../embedded-chatbot/theme/theme-context'
@@ -44,11 +45,22 @@ const ChatWithHistory: FC<ChatWithHistoryProps> = ({ className }) => {
 
   useDocumentTitle(site?.title || 'Chat')
 
+  // --- ⬇️ بخش اضافه شده ⬇️ ---
+  const [minLoading, setMinLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setMinLoading(false), 5000)
+    return () => clearTimeout(timer)
+  }, [])
+
+  const showLoading = appChatListDataLoading || minLoading
+  // --- ⬆️ پایان بخش اضافه شده ⬆️ ---
+
   return (
     <div
       className={cn(
         'font-vazirmatn flex h-full bg-background-default-burn',
-        isMobile && 'flex-col', 
+        isMobile && 'flex-col',
         className,
       )}
     >
@@ -88,8 +100,16 @@ const ChatWithHistory: FC<ChatWithHistoryProps> = ({ className }) => {
           )}
         >
           {!isMobile && <Header />}
-          {appChatListDataLoading && <Loading type="app" />}
-          {!appChatListDataLoading && <ChatWrapper key={chatShouldReloadKey} />}
+
+          {/* --- ⬇️ بخش ویرایش شده ⬇️ --- */}
+          {/* این دو خط قبلی بودند: */}
+          {/* {appChatListDataLoading && <Loading type="app" />} */}
+          {/* {!appChatListDataLoading && <ChatWrapper key={chatShouldReloadKey} />} */}
+
+          {/* این خط جدید جایگزین دو خط بالا شده است: */}
+          {showLoading ? <Loading type="app" /> : <ChatWrapper key={chatShouldReloadKey} />}
+          {/* --- ⬆️ پایان بخش ویرایش شده ⬆️ --- */}
+
         </div>
       </div>
     </div>
@@ -211,11 +231,11 @@ const ChatWithHistoryWrapWithCheckToken: FC<ChatWithHistoryWrapProps> = ({
         try {
           await checkOrSetAccessToken()
         }
- catch (e: any) {
+        catch (e: any) {
           if (e.status === 404) {
             setAppUnavailable(true)
           }
- else {
+          else {
             setIsUnknownReason(true)
             setAppUnavailable(true)
           }
