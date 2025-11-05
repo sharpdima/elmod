@@ -1,7 +1,6 @@
 'use client'
 import type { FC } from 'react'
-// useEffect و useState باید import شوند (که از قبل وجود دارند)
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react' // <--- ایمپورت‌های لازم
 import { useAsyncEffect } from 'ahooks'
 import { useThemeContext } from '../embedded-chatbot/theme/theme-context'
 import { ChatWithHistoryContext, useChatWithHistoryContext } from './context'
@@ -11,7 +10,7 @@ import Header from './header'
 import HeaderInMobile from './header-in-mobile'
 import ChatWrapper from './chat-wrapper'
 import type { InstalledApp } from '@/models/explore'
-import Loading from '@/app/components/base/loading'
+import Loading from '@/app/components/base/loading' // <--- ایمپورت لودینگ
 import useBreakpoints, { MediaType } from '@/hooks/use-breakpoints'
 import { checkOrSetAccessToken } from '@/app/components/share/utils'
 import AppUnavailable from '@/app/components/base/app-unavailable'
@@ -24,7 +23,7 @@ type ChatWithHistoryProps = {
 const ChatWithHistory: FC<ChatWithHistoryProps> = ({ className }) => {
   const {
     appData,
-    appChatListDataLoading,
+    appChatListDataLoading, // <--- از این متغیر استفاده می‌کنیم
     chatShouldReloadKey,
     isMobile,
     themeBuilder,
@@ -45,17 +44,25 @@ const ChatWithHistory: FC<ChatWithHistoryProps> = ({ className }) => {
 
   useDocumentTitle(site?.title || 'Chat')
 
-  // --- ⬇️ بخش اضافه شده ⬇️ ---
+  // --- ⬇️ بخش اضافه شده (منطق تأخیر ۵ ثانیه‌ای) ⬇️ ---
   const [minLoading, setMinLoading] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => setMinLoading(false), 5000)
+    const timer = setTimeout(() => setMinLoading(false), 5000) // 5 ثانیه
     return () => clearTimeout(timer)
   }, [])
 
+  // لودینگ زمانی نشان داده می‌شود که یا دیتای برنامه لود نشده، یا ۵ ثانیه هنوز تمام نشده است
   const showLoading = appChatListDataLoading || minLoading
   // --- ⬆️ پایان بخش اضافه شده ⬆️ ---
 
+  // --- ⬇️ منطق رندر اصلاح شد ⬇️ ---
+  if (showLoading) {
+    // اگر در حال لودینگ هستیم، *فقط* کامپوننت لودینگ سیاه تمام صفحه را نشان بده
+    return <Loading type="app" />
+  }
+
+  // اگر لودینگ تمام شد، *کل* صفحه چت (با سایدبار و صفحه خوشامدگویی آبی) را نشان بده
   return (
     <div
       className={cn(
@@ -101,23 +108,18 @@ const ChatWithHistory: FC<ChatWithHistoryProps> = ({ className }) => {
         >
           {!isMobile && <Header />}
 
-          {/* --- ⬇️ بخش ویرایش شده ⬇️ --- */}
-          {/* این دو خط قبلی بودند: */}
-          {/* {appChatListDataLoading && <Loading type="app" />} */}
-          {/* {!appChatListDataLoading && <ChatWrapper key={chatShouldReloadKey} />} */}
-
-          {/* این خط جدید جایگزین دو خط بالا شده است: */}
-          {showLoading ? (
-            <Loading type="app" />
-          ) : (
-            <ChatWrapper key={chatShouldReloadKey} />
-          )}
-          {/* --- ⬆️ پایان بخش ویرایش شده ⬆️ --- */}
+          {/* اینجا دیگر نیازی به شرط لودینگ نیست
+            چون ChatWrapper حاوی همان صفحه خوشامدگویی آبی است
+          */}
+          <ChatWrapper key={chatShouldReloadKey} />
         </div>
       </div>
     </div>
   )
 }
+
+// ... بقیه فایل (ChatWithHistoryWrap و ...) بدون تغییر باقی می‌ماند ...
+// (کدهای پایین این بخش را از فایل اصلی خودتان کپی کنید یا بگذارید بماند)
 
 export type ChatWithHistoryWrapProps = {
   installedAppInfo?: InstalledApp;
