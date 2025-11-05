@@ -107,9 +107,12 @@ const ChatWithHistory: FC<ChatWithHistoryProps> = ({ className }) => {
           {/* {!appChatListDataLoading && <ChatWrapper key={chatShouldReloadKey} />} */}
 
           {/* این خط جدید جایگزین دو خط بالا شده است: */}
-          {showLoading ? <Loading type="app" /> : <ChatWrapper key={chatShouldReloadKey} />}
+          {showLoading ? (
+            <Loading type="app" />
+          ) : (
+            <ChatWrapper key={chatShouldReloadKey} />
+          )}
           {/* --- ⬆️ پایان بخش ویرایش شده ⬆️ --- */}
-
         </div>
       </div>
     </div>
@@ -231,11 +234,11 @@ const ChatWithHistoryWrapWithCheckToken: FC<ChatWithHistoryWrapProps> = ({
         try {
           await checkOrSetAccessToken()
         }
-        catch (e: any) {
+ catch (e: any) {
           if (e.status === 404) {
             setAppUnavailable(true)
           }
-          else {
+ else {
             setIsUnknownReason(true)
             setAppUnavailable(true)
           }
