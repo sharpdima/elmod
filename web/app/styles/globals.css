@@ -786,16 +786,16 @@ button.btn.disabled\:btn-disabled.btn-primary.btn-medium.ml-3.w-8.px-0
     background-color: transparent !important;
   }
 
-    span.flex.items-center.justify-center.relative.rounded-lg.grow-0.shrink-0.overflow-hidden.w-10.h-10.text-\[24px\] {
+span.flex.items-center.justify-center.relative.rounded-lg.grow-0.shrink-0.overflow-hidden.w-10.h-10.text-\[24px\] {
     width: 3.5rem;
-    height: 4.5rem; 
+    height: 3.5rem; 
 } 
 
 span.flex.items-center.justify-center.relative.rounded-lg.grow-0.shrink-0.overflow-hidden.w-12.h-12.text-\[28px\]
  {
-    width: 10rem;
+    width: 13rem;
     height: 13rem;
-}
+} 
 
 span.flex.items-center.justify-center.relative.rounded-lg.grow-0.shrink-0.overflow-hidden.w-12.h-12.text-\[28px\] {
     max-width: 250px !important;

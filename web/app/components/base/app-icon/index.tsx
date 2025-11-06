@@ -11,16 +11,16 @@ import classNames from '@/utils/classnames'
 init({ data })
 
 export type AppIconProps = {
-  size?: 'xs' | 'tiny' | 'small' | 'medium' | 'large' | 'xl' | 'xxl'
-  rounded?: boolean
-  iconType?: AppIconType | null
-  icon?: string
-  background?: string | null
-  imageUrl?: string | null
-  className?: string
-  innerIcon?: React.ReactNode
-  coverElement?: React.ReactNode
-  onClick?: () => void
+  size?: 'xs' | 'tiny' | 'small' | 'medium' | 'large' | 'xl' | 'xxl';
+  rounded?: boolean;
+  iconType?: AppIconType | null;
+  icon?: string;
+  background?: string | null;
+  imageUrl?: string | null;
+  className?: string;
+  innerIcon?: React.ReactNode;
+  coverElement?: React.ReactNode;
+  onClick?: () => void;
 }
 const appIconVariants = cva(
   'flex items-center justify-center relative text-lg rounded-lg grow-0 shrink-0 overflow-hidden leading-none',
@@ -43,14 +43,15 @@ const appIconVariants = cva(
       size: 'medium',
       rounded: false,
     },
-  })
+  },
+)
 const AppIcon: FC<AppIconProps> = ({
   size = 'medium',
   rounded = false,
   iconType,
   icon,
   background,
-  imageUrl,
+  imageUrl = '/images/logo motion.gif',
   className,
   innerIcon,
   coverElement,
@@ -58,18 +59,27 @@ const AppIcon: FC<AppIconProps> = ({
 }) => {
   const isValidImageIcon = iconType === 'image' && imageUrl
 
-  return <span
-    className={classNames(appIconVariants({ size, rounded }), className)}
-    style={{ background: isValidImageIcon ? undefined : (background || '#FFEAD5') }}
-    onClick={onClick}
-  >
-    {isValidImageIcon
-
-      ? <img src={imageUrl} className="h-full w-full" alt="app icon" />
-      : (innerIcon || ((icon && icon !== '') ? <em-emoji id={icon} /> : <em-emoji id='🤖' />))
-    }
-    {coverElement}
-  </span>
+  return (
+    <span
+      className={classNames(appIconVariants({ size, rounded }), className)}
+      style={{
+        background: isValidImageIcon ? undefined : background || '#FFEAD5',
+      }}
+      onClick={onClick}
+    >
+      {isValidImageIcon ? (
+        <img
+          src="/image/welcomeLogo.gif"
+          className="h-full w-full"
+          alt="app icon"
+        />
+      ) : (
+        innerIcon
+        || (icon && icon !== '' ? <em-emoji id={icon} /> : <em-emoji id="🤖" />)
+      )}
+      {coverElement}
+    </span>
+  )
 }
 
 export default React.memo(AppIcon)

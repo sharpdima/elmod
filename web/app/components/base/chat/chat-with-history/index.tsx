@@ -48,7 +48,7 @@ const ChatWithHistory: FC<ChatWithHistoryProps> = ({ className }) => {
   const [minLoading, setMinLoading] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => setMinLoading(false), 5000) // 5 ثانیه
+    const timer = setTimeout(() => setMinLoading(false), 2500) // 2 ثانیه
     return () => clearTimeout(timer)
   }, [])
 
