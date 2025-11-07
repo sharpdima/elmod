@@ -40,7 +40,7 @@ const AnswerIcon: FC<AnswerIconProps> = ({
     >
       {isValidImageIcon ? (
         <img
-          src="\images\mowazi logo.jpg"
+          src={imageUrl}
           className="h-full w-full rounded-full"
           alt="answer icon"
         />
