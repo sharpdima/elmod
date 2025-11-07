@@ -12,7 +12,7 @@ const Loading = ({ type = 'area' }: ILoadingProps) => {
       {/* لوگوی GIF شما بدون تغییر باقی می‌ماند */}
       <img
         src="/logo/g0R9.gif"
-        alt="Loading SharpDima"
+        alt="Loading Mowazi"
         className="h-24 w-24" // می‌توانید این اندازه را به دلخواه تغییر دهید
       />
 
