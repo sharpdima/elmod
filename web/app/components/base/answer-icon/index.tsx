@@ -9,10 +9,10 @@ import type { AppIconType } from '@/types/app'
 init({ data })
 
 export type AnswerIconProps = {
-  iconType?: AppIconType | null
-  icon?: string | null
-  background?: string | null
-  imageUrl?: string | null
+  iconType?: AppIconType | null;
+  icon?: string | null;
+  background?: string | null;
+  imageUrl?: string | null;
 }
 
 const AnswerIcon: FC<AnswerIconProps> = ({
@@ -33,15 +33,24 @@ const AnswerIcon: FC<AnswerIconProps> = ({
     'text-xl',
   )
   const isValidImageIcon = iconType === 'image' && imageUrl
-  return <div
-    className={wrapperClassName}
-    style={{ background: background || '#D5F5F6' }}
-  >
-    {isValidImageIcon
-      ? <img src={imageUrl} className="h-full w-full rounded-full" alt="answer icon" />
-      : (icon && icon !== '') ? <em-emoji id={icon} /> : <em-emoji id='🤖' />
-    }
-  </div>
+  return (
+    <div
+      className={wrapperClassName}
+      style={{ background: background || '#D5F5F6' }}
+    >
+      {isValidImageIcon ? (
+        <img
+          src="\images\mowazi logo.jpg"
+          className="h-full w-full rounded-full"
+          alt="answer icon"
+        />
+      ) : icon && icon !== '' ? (
+        <em-emoji id={icon} />
+      ) : (
+        <em-emoji id="🤖" />
+      )}
+    </div>
+  )
 }
 
 export default AnswerIcon
