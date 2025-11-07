@@ -787,15 +787,22 @@ button.btn.disabled\:btn-disabled.btn-primary.btn-medium.ml-3.w-8.px-0
   }
 
 span.flex.items-center.justify-center.relative.rounded-lg.grow-0.shrink-0.overflow-hidden.w-10.h-10.text-\[24px\] {
+    border-width:0px !important;
     width: 3.5rem;
     height: 3.5rem; 
 } 
 
-span.flex.items-center.justify-center.relative.rounded-lg.grow-0.shrink-0.overflow-hidden.w-12.h-12.text-\[28px\]
+/* span.flex.items-center.justify-center.relative.rounded-lg.grow-0.shrink-0.overflow-hidden.w-12.h-12.text-\[28px\]
  {
     width: 13rem;
     height: 13rem;
-} 
+}  */
+
+span.flex.items-center.justify-center.relative.grow-0.shrink-0.overflow-hidden.border-\[0\.5px\].border-divider-regular.w-12.h-12.text-\[28px\].rounded-xl {
+    border-width: 0px;
+    width: 9rem;
+    height: 9rem;
+}
 
 span.flex.items-center.justify-center.relative.rounded-lg.grow-0.shrink-0.overflow-hidden.w-12.h-12.text-\[28px\] {
     max-width: 250px !important;
@@ -853,3 +860,10 @@ html[data-theme='light'] {
   --color-components-chat-input-border: #177582 !important;
 }
 
+
+html[data-theme='dark'] .bg-chat-bubble-bg {
+  background-color: #f0ffff47 !important;
+}
+
+span.flex.items-center.justify-center.relative.grow-0.shrink-0.overflow-hidden.border-\[0\.5px\].border-divider-regular.w-10.h-10.text-\[24px\].rounded-\[10px\]
+{ border-width:0px;}
