@@ -44,15 +44,15 @@ const ChatWithHistory: FC<ChatWithHistoryProps> = ({ className }) => {
 
   useDocumentTitle(site?.title || 'Chat')
 
-  // --- ⬇️ بخش اضافه شده (منطق تأخیر ۵ ثانیه‌ای) ⬇️ ---
+  // --- ⬇️ بخش اضافه شده (منطق تأخیر 2 ثانیه‌ای) ⬇️ ---
   const [minLoading, setMinLoading] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => setMinLoading(false), 2500) // 2 ثانیه
+    const timer = setTimeout(() => setMinLoading(false), 2000) // 2 ثانیه
     return () => clearTimeout(timer)
   }, [])
 
-  // لودینگ زمانی نشان داده می‌شود که یا دیتای برنامه لود نشده، یا ۵ ثانیه هنوز تمام نشده است
+  // لودینگ زمانی نشان داده می‌شود که یا دیتای برنامه لود نشده، یا 2 ثانیه هنوز تمام نشده است
   const showLoading = appChatListDataLoading || minLoading
   // --- ⬆️ پایان بخش اضافه شده ⬆️ ---
 
